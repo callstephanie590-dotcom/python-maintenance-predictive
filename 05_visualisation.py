@@ -63,7 +63,7 @@ plt.show()
 
 #distributions des rul
 plt.figure(figsize=(8,4))
-plt.hist(df[df['cycle'] == 1]['RUL'], bins=20, color='steelblue', edgecolor='black')
+plt.hist(df[df['cycle'] == 1]['RUL'], bins=20, color='steelblue', edgecolor='black') # on selectionne le 1er cycle de chaque moteur (RUL max)
 plt.xlabel('RUL initiale (cycles)')
 plt.ylabel('Nombres de moteurs')
 plt.title('Distribution de la durée de vie des moteurs')
