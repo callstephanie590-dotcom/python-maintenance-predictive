@@ -27,10 +27,11 @@ plt.xlabel('Cycle')  #axe des abscisses
 plt.ylabel('s2 - Température')  #axe des ordonnées 
 plt.title('Evolution du capteur s2 - Moteur 1') #titre 
 plt.grid(True)
+plt.savefig('img_capteur_s2.png', dpi=150, bbox_inches='tight') 
 plt.show()
 
 
-#Comparaison de 4 capteurs sur le moteur 1
+#GRAPHE 2: Comparaison de 4 capteurs sur le moteur 1
 fig, axes= plt.subplots(2, 2, figsize=(12, 8))
 
 capteurs= ['s2', 's3', 's4', 's7']
@@ -44,10 +45,11 @@ for i, capteur in enumerate(capteurs):
 
 plt.suptitle('Evolution des capteurs - Moteur 1')
 plt.tight_layout()
+plt.savefig('img_capteurs_multiples.png', dpi=150, bbox_inches='tight')
 plt.show()
 
 
-#RUL en fonction du cycle(tous les moteurs superposés)
+#graphe 3 :RUL en fonction du cycle(tous les moteurs superposés)
 plt.figure(figsize=(10,5))
 
 for moteur_id in df['moteur_id'].unique()[:20]: #on prend 20 moteurs
@@ -58,16 +60,22 @@ plt.xlabel('Cycle')
 plt.ylabel('RUL')
 plt.title("RUL en fonction du cycle - 20 moteurs")
 plt.grid(True)
+plt.savefig('img_rul_20moteurs.png', dpi=150, bbox_inches='tight')
 plt.show()
 
 
-#distributions des rul
+#graphe 4: distributions des rul
 plt.figure(figsize=(8,4))
 plt.hist(df[df['cycle'] == 1]['RUL'], bins=20, color='steelblue', edgecolor='black') # on selectionne le 1er cycle de chaque moteur (RUL max)
 plt.xlabel('RUL initiale (cycles)')
 plt.ylabel('Nombres de moteurs')
 plt.title('Distribution de la durée de vie des moteurs')
 plt.grid(True)
+plt.savefig('img_distribution_rul.png', dpi=150, bbox_inches='tight')
 plt.show()
+
+
+
+
 
 
